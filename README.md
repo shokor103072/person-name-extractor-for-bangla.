@@ -12,21 +12,3 @@ To run the script and perform NER on the sample sentence, simply run:
 
 ```bash
 python ner_predict.py
-
-3. Upload both `ner_predict.py` and `README.md` to a new Git repository:
-
-```bash
-# Initialize a new Git repository
-git init
-
-# Add the files to the repository
-git add ner_predict.py README.md
-
-# Commit the changes
-git commit -m "Initial commit"
-
-# Add your remote repository
-git remote add origin https://github.com/username/repo.git
-
-# Push the changes to your remote repository
-git push -u origin master
