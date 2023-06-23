@@ -1,20 +1,22 @@
+import streamlit as st
 from flair.models import SequenceTagger
 from flair.data import Sentence
 
-def load_model_and_predict(sentence_text):
-    # Load the pre-trained NER model
-    tagger = SequenceTagger.load("flair/ner-english-ontonotes-large")
+@st.cache(allow_output_mutation=True)
+def load_model():
+    return SequenceTagger.load("flair/ner-english-ontonotes-large")
 
-    # Create a sentence
+def predict(sentence_text, model):
     sentence = Sentence(sentence_text)
-
-    # Predict the NER tags
-    tagger.predict(sentence)
-
-    # Return the sentence with predicted tags
+    model.predict(sentence)
     return sentence.to_tagged_string()
 
-if __name__ == "__main__":
-    sentence_text = "আব্দুর রহিম নামের কাস্টমারকে একশ টাকা বাকি দিলাম"
-    tagged_sentence = load_model_and_predict(sentence_text)
-    print(tagged_sentence)
+model = load_model()
+
+st.title('Bangla Named Entity Recognition')
+
+sentence_text = st.text_input('Enter a sentence')
+
+if st.button('Predict'):
+    tagged_sentence = predict(sentence_text, model)
+    st.write(tagged_sentence)
