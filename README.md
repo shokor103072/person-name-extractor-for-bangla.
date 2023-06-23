@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ## Usage
 1. Run the application with the following command:
 ```
-streamlit run app.py
+streamlit run ner_predict.py
 ```
 2. Open your browser and go to ```http://localhost:8501.```
 
