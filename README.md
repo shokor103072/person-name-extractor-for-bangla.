@@ -1,14 +1,32 @@
 # Bangla Named Entity Recognition
+This application is a Named Entity Recognition (NER) tool that is capable of identifying proper nouns such as names of people, locations, organizations, and other entities from the input text. It utilizes the pre-trained NER model from Flair, specifically the `flair/ner-english-ontonotes-large` model, to make predictions.
 
-This repository contains a Python script for performing Named Entity Recognition (NER) on Bangla text using a pre-trained model from the Flair library.
+## Dependencies
+This application uses the following libraries:
 
-## Approach
+- `streamlit`
+- `flair`
+## Installation
+Before running the application, you need to install the required libraries. You can install all of them at once using the following command:
 
-The approach used in this project is to leverage a pre-trained NER model provided by the Flair library. The model was originally trained on the OntoNotes dataset in English, so its performance on Bangla text may not be optimal. Nevertheless, this approach provides a starting point for future improvements, such as training a custom model on a Bangla NER dataset.
-
+```
+pip install -r requirements.txt
+```
 ## Usage
+1. Run the application with the following command:
+```
+streamlit run app.py
+```
+2. Open your browser and go to ```http://localhost:8501.```
 
-To run the script and perform NER on the sample sentence, simply run:
+3. In the application, enter a sentence in the text input field.
 
-```bash
-python ner_predict.py
+4. Click on the 'Predict' button. The application will display the sentence with identified entities.
+
+## Functionality
+The main functions of the application are:
+
+- `load_model()`: This function loads the pre-trained NER model from Flair.
+- `predict(sentence_text, model)`: This function receives the user input text and the loaded model, then returns the sentence with the predicted NER tags.
+## Model
+The model used in this application is `flair/ner-english-ontonotes-large`, a large NER model pre-trained on the English OntoNotes dataset by Flair.
